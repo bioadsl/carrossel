@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Consulta Carrossel de Perguntas</h1>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="searchParam" [(ngModel)]="searchParam" name="searchParam" placeholder="Digite a inscrição">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarPerguntas()">Buscar</button>
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" (click)="limparCampo()">Limpar</button>
+    </form>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  
+    <table class="table table-bordered mt-3" *ngIf="perguntas.length > 0">
+      <thead>
+        <tr>
+          <th>PERGUNTA</th>
+          <th>RESPOSTA CERTA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pergunta of perguntas">
+          <td>{{ pergunta.perguntaTexto }}</td>
+          <td>{{ pergunta.respostaCerta }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
